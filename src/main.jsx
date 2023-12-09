@@ -6,6 +6,7 @@ import Homepage from "./App";
 import LoginPage from "./pages/login";
 import RegisterPage from "./pages/register";
 import DetailProduct from "./pages/detailProduct";
+import Cart from "./pages/cart";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
     path: "/detailproduct",
     element: <DetailProduct />,
   },
+  {
+    path : "/cart",
+    element : <Cart/>
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

@@ -23,7 +23,7 @@ const DetailProduct = () => {
       </div>
       <div className="container mx-auto p-4 flex flex-wrap justify-center">
         <div className="w-96 m-4">
-          <img src={LaptopImg} alt="product" className="w-full" />          
+          <img src={LaptopImg} alt="product" className="w-full rounded-lg" />          
           <h2 className="font-semibold text-xl mt-2">Laptop</h2>
           <h2 className="font-semibold text-xl mt-2">Rp. 5.000.000</h2>
           <h2>Dekskripsi Produk</h2>
