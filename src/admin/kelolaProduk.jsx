@@ -6,7 +6,6 @@ function KelolaProduk() {
     { id: 1, nama: "Product A", harga: 100, stok: 50 },
     { id: 2, nama: "Product B", harga: 150, stok: 30 },
     { id: 2, nama: "Product B", harga: 150, stok: 30 },
-    // Add more data as needed
   ];
 
   return (

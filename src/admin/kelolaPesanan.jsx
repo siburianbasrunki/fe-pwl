@@ -19,7 +19,6 @@ function KelolaPesanan() {
 
       buktiTransfer: "lihat bukti",
     },
-    // Add more data as needed
   ];
 
   return (
