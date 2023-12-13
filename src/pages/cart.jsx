@@ -140,7 +140,6 @@ const Cart = () => {
             <option>BNI</option>
           </select>
 
-          {/* Render payment details based on the selected method */}
           {selectedPaymentMethod && (
             <div className="mt-2">{renderPaymentDetails()}</div>
           )}
