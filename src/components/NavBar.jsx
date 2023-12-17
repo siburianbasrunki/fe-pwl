@@ -1,6 +1,6 @@
-import React from "react";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { Link } from "react-router-dom";
+
 const Navbar = () => {
   return (
     <>
@@ -55,7 +55,7 @@ const Navbar = () => {
             </Link>
           </div>
           <div>
-            <ul className="flex menu menu-horizontal px-1 text-lg gap-2 items-center hidden lg:flex">
+            <ul className="menu menu-horizontal px-1 text-lg gap-2 items-center hidden lg:flex">
               <li>
                 <Link to="/login">Login</Link>
               </li>

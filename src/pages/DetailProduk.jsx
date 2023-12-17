@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import Navbar from "../components/navbar";
+import { useState } from "react";
+
 import LaptopImg from "../assets/images/laptop.png";
 import { FaPlus, FaMinus, FaPen } from "react-icons/fa";
 
-const DetailProduct = () => {
+const DetailProduk = () => {
   const [quantity, setQuantity] = useState(0);
 
   const handleIncrease = () => {
@@ -18,22 +18,18 @@ const DetailProduct = () => {
 
   return (
     <>
-      <div>
-        <Navbar />
-      </div>
       <div className="container mx-auto p-4 flex flex-wrap justify-center">
         <div className="w-96 m-4">
-          <img src={LaptopImg} alt="product" className="w-full rounded-lg" />          
+          <img src={LaptopImg} alt="product" className="w-full rounded-lg" />
           <h2 className="font-semibold text-xl mt-2">Laptop</h2>
           <h2 className="font-semibold text-xl mt-2">Rp. 5.000.000</h2>
           <h2>Dekskripsi Produk</h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ab
             officia tenetur dignissimos fuga sapiente molestiae suscipit
-            quibusdam facere, accusantium consectetur placeat non
-            reprehenderit ipsam incidunt odio. Dolorem necessitatibus aut,
-            autem officiis reprehenderit quam distinctio modi iure provident
-            ratione dicta.
+            quibusdam facere, accusantium consectetur placeat non reprehenderit
+            ipsam incidunt odio. Dolorem necessitatibus aut, autem officiis
+            reprehenderit quam distinctio modi iure provident ratione dicta.
           </p>
         </div>
         <div className="w-full h-80 md:w-80 lg:w-96 flex flex-col border border-black rounded-lg p-4 m-4">
@@ -75,4 +71,4 @@ const DetailProduct = () => {
   );
 };
 
-export default DetailProduct;
+export default DetailProduk;

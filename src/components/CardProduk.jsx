@@ -1,4 +1,3 @@
-import React from "react";
 import product1 from "../assets/images/keyboard.png";
 import product2 from "../assets/images/laptop.png";
 import product3 from "../assets/images/speaker.png";
@@ -51,7 +50,7 @@ const SkeletonCard = () => {
   );
 };
 
-const CardProduct = () => {
+const CardProduk = () => {
   return (
     <>
       <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
@@ -83,4 +82,4 @@ const CardProduct = () => {
   );
 };
 
-export default CardProduct;
+export default CardProduk;
