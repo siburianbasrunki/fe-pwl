@@ -1,7 +1,17 @@
+import Cookies from "js-cookie";
+import { Link, useNavigate } from "react-router-dom";
+
 import { MdOutlineShoppingCart } from "react-icons/md";
-import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const token = Cookies.get("token");
+
+  const onHandleLogout = () => {
+    Cookies.remove("token");
+    navigate("/login");
+  };
+
   return (
     <>
       <div className="navbar bg-orange-400">
@@ -27,19 +37,25 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#ff6c22] rounded-box w-52"
             >
-              <li>
-                <Link to="/login">Login</Link>
-              </li>
-              <li>
-                <Link to="/register">Register</Link>
-              </li>
+              {token === undefined ? (
+                <>
+                  <li>
+                    <Link to="/login">Login</Link>
+                  </li>
+                  <li>
+                    <Link to="/register">Register</Link>
+                  </li>
+                </>
+              ) : (
+                <button onClick={onHandleLogout}>Logout</button>
+              )}
             </ul>
           </div>
           <Link to="/" className="btn btn-ghost text-xl text-gray-100">
             SpareCycle
           </Link>
         </div>
-        <div className="navbar-center hidden lg:flex">
+        {/* <div className="navbar-center hidden lg:flex">
           <div className="form-control">
             <input
               type="text"
@@ -47,21 +63,29 @@ const Navbar = () => {
               className="input input-bordered w-24 md:w-auto"
             />
           </div>
-        </div>
+        </div> */}
         <div className="navbar-end text-gray-100">
-          <div>
-            <Link to="/Cart">
-              <MdOutlineShoppingCart className="text-3xl" />
-            </Link>
-          </div>
+          {token !== undefined ? (
+            <div>
+              <Link to="/Cart">
+                <MdOutlineShoppingCart className="text-3xl" />
+              </Link>
+            </div>
+          ) : null}
           <div>
             <ul className="menu menu-horizontal px-1 text-lg gap-2 items-center hidden lg:flex">
-              <li>
-                <Link to="/login">Login</Link>
-              </li>
-              <li>
-                <Link to="/register">Register</Link>
-              </li>
+              {token === undefined ? (
+                <>
+                  <li>
+                    <Link to="/login">Login</Link>
+                  </li>
+                  <li>
+                    <Link to="/register">Register</Link>
+                  </li>
+                </>
+              ) : (
+                <button onClick={onHandleLogout}>Logout</button>
+              )}
             </ul>
           </div>
         </div>
