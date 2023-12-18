@@ -2,10 +2,14 @@ import { useState } from "react";
 
 import cartImg from "../assets/images/laptop.png";
 import { FaMinus, FaPlus, FaRegTrashAlt } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 const Cart = () => {
   const [quantity, setQuantity] = useState(0);
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(null);
+  const items = useSelector((state) => state.cart.items);
+
+  console.log(items)
 
   const handleIncrease = () => {
     setQuantity((prevQuantity) => prevQuantity + 1);
