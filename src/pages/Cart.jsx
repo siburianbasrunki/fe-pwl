@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-// import { FaRegTrashAlt } from "react-icons/fa";
+import { FaRegTrashAlt } from "react-icons/fa";
 
 import { parseJwt } from "../utils/parseJwt";
 import { createOrder } from "../services/order";
@@ -16,7 +16,7 @@ const Cart = () => {
   const userId = user?.user_id;
 
   const [dataProduk, setDataProduk] = useState([]);
-  // const [totalPrice, setTotalPrice] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
   const [fotoPayment, setFotoPayment] = useState(null);
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(null);
   // const [deleteCartItems, setDeleteCartItems] = useState(null);
@@ -27,7 +27,11 @@ const Cart = () => {
   const fetchData = async (userId) => {
     try {
       const data = await getCartItemUser(userId);
+      console.log(data);
 
+      setTotalPrice(
+        data.data.reduce((total, item) => total + item.price * item.quantity, 0)
+      );
       setDataProduk([...data.data]);
     } catch (error) {
       console.log(error);
@@ -40,7 +44,12 @@ const Cart = () => {
 
   const onHandleOrder = async () => {
     try {
-      const data = await createOrder(userId, 70000, "DiProses", fotoPayment);
+      const data = await createOrder(
+        userId,
+        totalPrice,
+        "DiProses",
+        fotoPayment
+      );
       console.log(data);
 
       alert("Pesanan Berhasil Dipesan");
@@ -116,15 +125,16 @@ const Cart = () => {
                   <div className="mb-2">
                     <h3 className="text-xl font-bold">Rp {produk.price}</h3>
                   </div>
-                  {/* <div className="flex gap-4 items-center">
+                  <p>Catatan Pembeli: {produk.note}</p>
+                  <div className="flex gap-4 items-center">
                     <p>Jumlah Pesanan: {produk.quantity}</p>
                     <div>
                       <FaRegTrashAlt
                         className="text-2xl font-extrabold"
-                        onClick={() => openDeleteModal(produk.id)}
+                        // onClick={() => openDeleteModal(produk.id)}
                       />
                     </div>
-                  </div> */}
+                  </div>
                 </div>
               </div>
             ))
@@ -135,7 +145,7 @@ const Cart = () => {
 
         <div className="w-full h-auto md:w-80 lg:w-96 flex flex-col border border-black rounded-lg p-4 mt-4">
           <h2 className="mb-2 text-xl font-semibold ">Ringkasan Belanja</h2>
-          {/* <p>Total Pembayaran: {totalPrice}</p> */}
+          <p>Total Pembayaran: {totalPrice}</p>
           <h2 className="mb-2 text-lg font-semibold">Metode Pembayaran</h2>
           <select
             className="select select-bordered w-full"
