@@ -212,7 +212,7 @@ function KelolaProduk() {
                   </label>
                   <textarea
                     id="deskripsi_produk"
-                    className="w-full max-w-xs border rounded-full drop-shadow-xl p-2"
+                    className="w-full max-w-xs border  drop-shadow-xl p-2"
                     placeholder="Deskripsi Produk Anda"
                     onChange={(e) =>
                       setFormDataProduk({

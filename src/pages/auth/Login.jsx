@@ -4,8 +4,11 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { parseJwt } from "../../utils/parseJwt";
 import { login } from "../../services/auth";
+import { useDispatch } from "react-redux";
+import { setData } from "../../redux/authSlice";
 
 const LoginPage = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
@@ -23,6 +26,13 @@ const LoginPage = () => {
       const token = Cookies.get("token");
       const user = parseJwt(token);
       const role = user?.role;
+      Cookies.set("role", role);
+      dispatch(
+        setData({
+          token,
+          role,
+        })
+      );
 
       if (role === "admin") {
         navigate("/admin/dashboard/produk");

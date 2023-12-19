@@ -9,6 +9,7 @@ const Navbar = () => {
 
   const onHandleLogout = () => {
     Cookies.remove("token");
+    Cookies.remove("role");
     navigate("/login");
   };
 
