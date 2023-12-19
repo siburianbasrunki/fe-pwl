@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 
 import {
-  MdSpaceDashboard,
+  // MdSpaceDashboard,
   MdOutlineProductionQuantityLimits,
 } from "react-icons/md";
 import { FaShopify } from "react-icons/fa";
@@ -12,11 +12,11 @@ import { FaArrowRightArrowLeft } from "react-icons/fa6";
 import { FcShop } from "react-icons/fc";
 
 const navLinks = [
-  {
-    name: "Dashboard",
-    link: "/admin/dashboard",
-    icon: MdSpaceDashboard,
-  },
+  // {
+  //   name: "Dashboard",
+  //   link: "/admin/dashboard",
+  //   icon: MdSpaceDashboard,
+  // },
   {
     name: "Kelola Produk",
     link: "/admin/dashboard/produk",

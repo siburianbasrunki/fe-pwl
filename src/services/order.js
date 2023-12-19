@@ -1,19 +1,19 @@
 import Cookies from "js-cookie";
 import axios from "axios";
 
-export async function addCartItem(userId, productId, quantity, note) {
+export async function createOrder(userId, amount, status, payment) {
   try {
     const { data } = await axios.post(
-      `${import.meta.env.VITE_PUBLIC_BACKEND_API}/cart`,
+      `${import.meta.env.VITE_PUBLIC_BACKEND_API}/order`,
       {
         user_id: userId,
-        product_id: productId,
-        quantity: quantity,
-        note: note,
+        amount: amount,
+        status: status,
+        payment: payment,
       },
       {
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${Cookies.get("token")}`,
         },
       }
@@ -24,10 +24,10 @@ export async function addCartItem(userId, productId, quantity, note) {
   }
 }
 
-export async function getCartItemUser(id) {
+export async function getOrder() {
   try {
     const { data } = await axios.get(
-      `${import.meta.env.VITE_PUBLIC_BACKEND_API}/cart?id=${id}`,
+      `${import.meta.env.VITE_PUBLIC_BACKEND_API}/order`,
       {
         headers: {
           Authorization: `Bearer ${Cookies.get("token")}`,

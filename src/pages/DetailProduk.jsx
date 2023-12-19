@@ -5,15 +5,16 @@ import { useParams, useNavigate } from "react-router-dom";
 import { FaPlus, FaMinus, FaPen } from "react-icons/fa";
 
 import { parseJwt } from "../utils/parseJwt";
-import { addCartItem } from "../services/admin/cart";
+import { addCartItem } from "../services/cart";
 import { getDetailProduk } from "../services/admin/produk";
 
 const DetailProduk = () => {
+  const navigate = useNavigate();
   let { produkId } = useParams();
   const token = Cookies.get("token");
   const user = token !== undefined ? parseJwt(token) : "";
   const userId = user?.user_id;
-  const navigate = useNavigate();
+
   const [dataProduk, setDataProduk] = useState({});
   const [quantity, setQuantity] = useState(0);
   const [catatan, setCatatan] = useState("");

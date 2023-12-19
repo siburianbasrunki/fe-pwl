@@ -7,7 +7,6 @@ import DetailProduk from "./pages/DetailProduk";
 import Cart from "./pages/Cart";
 import RootLayout from "./layouts/RootLayout";
 
-import Overview from "./pages/admin/Overview";
 import KelolaProduk from "./pages/admin/KelolaProduk";
 import KelolaPesanan from "./pages/admin/KelolaPesanan";
 import DashboardLayout from "./layouts/DashboardLayout";
@@ -24,7 +23,6 @@ const App = () => {
           <Route path="/detail-produk/:produkId" element={<DetailProduk />} />
         </Route>
         <Route element={<DashboardLayout />}>
-          <Route path="/admin/dashboard" element={<Overview />} />
           <Route path="/admin/dashboard/produk" element={<KelolaProduk />} />
           <Route path="/admin/dashboard/pesanan" element={<KelolaPesanan />} />
         </Route>

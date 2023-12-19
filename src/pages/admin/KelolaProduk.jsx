@@ -174,20 +174,6 @@ function KelolaProduk() {
           ))}
         </tbody>
       </table>
-      <div className="join flex items-center justify-center gap-4 rounded-lg">
-        <button className="join-item btn btn-sm bg-white text-gray-500">
-          Previous
-        </button>
-        <button className="join-item btn btn-sm btn-active bg-[#FFB054] rounded-lg">
-          1
-        </button>
-        <button className="join-item btn btn-sm rounded-lg">2</button>
-        <button className="join-item btn btn-sm rounded-lg">3</button>
-        <button className="join-item btn btn-sm rounded-lg">4</button>
-        <button className="join-item btn btn-sm  bg-white text-gray-500">
-          Next
-        </button>
-      </div>
 
       <dialog id="my_modal" className="modal w-full p-8">
         <div className="modal-box bg-[#EFF0F6] w-11/12 max-w-3xl">
