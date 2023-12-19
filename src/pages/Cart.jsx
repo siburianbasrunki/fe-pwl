@@ -3,11 +3,9 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { FaRegTrashAlt } from "react-icons/fa";
-
 import { parseJwt } from "../utils/parseJwt";
 import { createOrder } from "../services/order";
-import { getCartItemUser, deleteCartItem } from "../services/cart";
+import { getCartItemUser } from "../services/cart";
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -128,12 +126,6 @@ const Cart = () => {
                   <p>Catatan Pembeli: {produk.note}</p>
                   <div className="flex gap-4 items-center">
                     <p>Jumlah Pesanan: {produk.quantity}</p>
-                    <div>
-                      <FaRegTrashAlt
-                        className="text-2xl font-extrabold"
-                        // onClick={() => openDeleteModal(produk.id)}
-                      />
-                    </div>
                   </div>
                 </div>
               </div>
