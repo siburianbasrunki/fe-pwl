@@ -12,7 +12,7 @@ const authSlice = createSlice({
   reducers: {
     setData: (state, action) => {
       state.token = action.payload.token;
-      state.userRole = action.payload.userRole;
+      state.userRole = action.payload.role;
     },
     removeData: (state) => {
       state.token = null;
